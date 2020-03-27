@@ -7,7 +7,7 @@ class IncidentController {
     const [count] = await connection('incidents').count();
 
     const incidents = await connection('incidents')
-      .join('ngos', 'ngo_id', '=', 'incidents.ngo_id')
+      .join('ngos', 'ngos.id', '=', 'incidents.ngo_id')
       .limit(5)
       .offset((page - 1) * 5)
       .select([
